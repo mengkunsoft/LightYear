@@ -27,24 +27,22 @@
             <div id="navigation" class="collapse navbar-collapse flex-column">
                 <div class="profile-section pt-3 pt-lg-0">
                     <img class="profile-image mb-3 rounded-circle mx-auto" src="<?php bloginfo('template_url'); ?>/images/lyear.png" width="120" height="120" alt="<?php bloginfo('name'); ?>" >
-                    <div class="lyear-sentence mb-3">必须记住我们学习的时间是有限的。时间有限，不只由于人生短促，更由于人事纷繁。我们就应力求把我们所有的时间用去做最有益的事情。</div>
+                    <div class="lyear-sentence mb-3">
+                        <?php echo  get_the_author_meta( 'user_description' ); ?>
+                        必须记住我们学习的时间是有限的。时间有限，不只由于人生短促，更由于人事纷繁。我们就应力求把我们所有的时间用去做最有益的事情。
+                    </div>
                     <hr>
                 </div>
                 
-                <ul class="navbar-nav flex-column text-center">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="index.html">首页</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">技术</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">感悟</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html">关于我</a>
-                    </li>
-                </ul>
+                <?php 
+                wp_nav_menu( array( 
+                    'menu_class'     => 'left-menu',   //ul节点class值
+                    'theme_location' => 'left-menu', 
+                    'container'      => false,                      // 不要外层包围 http://www.2zzt.com/jcandcj/6373.html
+                    'fallback_cb'    => 'not_set_menu_fallback'     // 用于没有在后台设置导航时调的回调函数。
+                    ) 
+                ); 
+                ?>
                 
                 <div class="my-2 my-md-3">
                     <form class="lyear-search-form form-inline justify-content-center pt-3">

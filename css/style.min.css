@@ -197,12 +197,29 @@ i[class*='mdi'] {
     line-height: 2;
 }
 /* 导航栏目 */
+.left-menu, .left-menu ul, .left-menu li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.left-menu a {
+    display: block;
+    padding: 10px;
+    color: rgba(255, 255, 255, .8);
+}
+.left-menu a:hover {
+    color: rgba(255, 255, 255, .8);
+}
+
 .lyear-header .nav-link {
     color: rgba(255, 255, 255, .8);
 }
 .lyear-header .nav-link:hover {
     color: rgba(255, 255, 255, 1);
 }
+
+
+
 /* 搜索框 */
 .lyear-search-form .form-control {
     border-radius: 100px;

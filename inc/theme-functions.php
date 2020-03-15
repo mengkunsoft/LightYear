@@ -38,7 +38,7 @@ add_action( 'wp_enqueue_scripts', 'mk_theme_scripts' );
 // 自定义菜单
 register_nav_menus(
     array(
-        'main-menu'   => '侧边栏菜单',
+        'left-menu'   => '侧边栏菜单',
         // 'mobile-menu' => '移动端侧滑菜单'
     )
 );
