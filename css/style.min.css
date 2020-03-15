@@ -248,6 +248,10 @@ i[class*='mdi'] {
 .arc-preview:hover {
     opacity: .7;
 }
+.arc-preview img {
+    border: 1px solid #eee;
+    max-height: 400px;
+}
 /* 侧边栏 */
 .lyear-sidebar {
     padding-left: 30px;
@@ -365,6 +369,39 @@ i[class*='mdi'] {
     height: 100%;
     background: #dee2e6;
     content: "";
+}
+/* 文中图片 */
+.lyear-arc-detail .wp-caption {
+    max-width: 100%;
+}
+.lyear-arc-detail .aligncenter, .lyear-arc-detail .alignnone, .lyear-arc-detail img.alignnone {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+.lyear-arc-detail .wp-caption .wp-caption-text {
+    text-align: center;
+    margin: 1em auto 2em;
+    border-bottom: 1px #c3c3c3 dashed;
+    display: inline-block;
+    padding: 0 6px 1px;
+    color: #949292;
+    font-size: .9em;
+}
+.lyear-arc-detail img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #eee;
+    border-radius: 3px;
+    -webkit-transition: .5s ease all;
+       -moz-transition: .5s ease all;
+         -o-transition: .5s ease all;
+            transition: .5s ease all;
+}
+.lyear-arc-detail img:hover {
+    -webkit-box-shadow: 0 0 2.6875rem rgba(0,0,0,0.15);
+       -moz-box-shadow: 0 0 2.6875rem rgba(0,0,0,0.15);
+            box-shadow: 0 0 2.6875rem rgba(0,0,0,0.15);
 }
 /* 评论 */
 .lyear-comment-title {

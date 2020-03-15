@@ -4,7 +4,7 @@
 
 移植自 @笔下光年 的静态博客页面模板 Light Year Blog，源文件地址： https://gitee.com/yinqi/Light-Year-Blog
 
-目前尚未完工。
+移植工作目前正在进行中...
 
 ---
 
@@ -21,8 +21,3 @@ Light Year Blog是基于Bootstrap v4.3.1的小清新风格的HTML博客模板，
 1. 左右分栏布局，自己搭配左侧背景。
 1. 基于 Bootstrap v4.3.1 编写，响应式布局（台式机、平板电脑、移动设备），支持主流浏览器（Chrome、Firefox、Safari、IE11、Edge）。
 1. 界面设计简洁、清新。
-
-
-#### 截图
-![首页](https://images.gitee.com/uploads/images/2019/1103/214027_5dc5b629_82992.jpeg "未命名-1.jpg")
-![详细页](https://images.gitee.com/uploads/images/2019/1103/214045_d7f79cef_82992.jpeg "笔下光年的博客.jpg")
