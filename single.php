@@ -13,7 +13,7 @@ get_header();
         <div class="col-xl-8">
           <article class="lyear-arc">
             <div class="arc-header">
-                <h2 class="arc-title"><a href="#"><?php the_title(); ?></a></h2>
+                <h2 class="arc-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
                 <ul class="arc-meta">
                     <li><i class="mdi mdi-calendar"></i> <?php the_time('Y-m-d h:s');?></li>
                     <?php the_tags('<li><i class="mdi mdi-tag-text-outline"></i> ', ', ', '</li>'); ?>
@@ -157,6 +157,7 @@ get_header();
         <!-- 内容 end -->
         <?php wp_reset_query(); endwhile; ?>
         
+        <!-- 侧边栏 -->
         <?php get_sidebar();?>
       </div>
 
@@ -164,11 +165,5 @@ get_header();
     <!-- end container -->
   </section>
 </div>
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript" src="js/jquery.nicescroll.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/highlight/highlight.pack.js"></script>
-<script type="text/javascript" src="js/main.min.js"></script>
-<script type="text/javascript">hljs.initHighlightingOnLoad();</script>
-</body>
-</html>
+
+<?php get_footer(); ?>

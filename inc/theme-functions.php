@@ -6,64 +6,30 @@
 
 // 加载前端脚本及样式
 function mk_theme_scripts() {
-    // Jquery
-    wp_enqueue_script( 'jquery', MK_THEME_STATIC_URL . '/js/jquery.min.js', array(), THEME_VERSION, false );
+    $theme_static_url = get_template_directory_uri();
     
-    // 图标字体	
-    wp_enqueue_style( 'font-awesome', MK_THEME_STATIC_URL . '/fonts/font-awesome.min.css', array(), THEME_VERSION, 'all');
+    // 前端脚本
+    wp_enqueue_script( 'jquery',    $theme_static_url . '/js/jquery.min.js',                array(), THEME_VERSION, true );
+    wp_enqueue_script( 'bootstrap', $theme_static_url . '/js/bootstrap.min.js',             array(), THEME_VERSION, true );
+    wp_enqueue_script( 'highlight', $theme_static_url . '/js/highlight.pack.js',            array(), THEME_VERSION, true );
+    wp_enqueue_script( 'main',      $theme_static_url . '/js/main.min.js',                  array(), THEME_VERSION, true );
     
-    // 灯箱
-    wp_enqueue_style( 'fancybox', MK_THEME_STATIC_URL . '/css/jquery.fancybox.min.css', array(), THEME_VERSION, 'all');
-    wp_enqueue_script( 'jquery.fancybox', MK_THEME_STATIC_URL . '/js/jquery.fancybox.min.js', array(), THEME_VERSION, false);
     
-    // 代码高亮
-    wp_enqueue_script( 'prettify', MK_THEME_STATIC_URL . '/js/prettify.js', array(), THEME_VERSION, false);
+    // 样式文件
+    wp_enqueue_style( 'bootstrap',           $theme_static_url . '/css/bootstrap.min.css',              array(), THEME_VERSION, 'all' );
+    wp_enqueue_style( 'materialdesignicons', $theme_static_url . '/css/materialdesignicons.min.css',    array(), THEME_VERSION, 'all' );
+    wp_enqueue_style( 'highlight',           $theme_static_url . '/css/highlight.css',                  array(), THEME_VERSION, 'all' );
+    wp_enqueue_style( 'style',               $theme_static_url . '/css/style.min.css',                  array(), THEME_VERSION, 'all' );
     
-    if(true) { //if (current_user_can('level_10')) {    // 管理已登录，加载未压缩文件
-        // 主题样式
-        wp_enqueue_style('main', MK_THEME_STATIC_URL . '/dev/style.dev.css', array(), time(), 'all');
-        
-        // 其它共用
-        wp_enqueue_script( 'script', MK_THEME_STATIC_URL . '/dev/script.dev.js', array(), '1.0', false );
-        
-        // 代码高亮		
-        wp_enqueue_style( 'highlight', MK_THEME_STATIC_URL . '/dev/highlight.css', array(), '1.0', 'all');
-        
-        // 评论ajax
-        wp_enqueue_script( 'comments-ajax', MK_THEME_STATIC_URL . '/dev/comments-ajax.js', array(), '1.5', false);
-        
-        // headroom.min
-        wp_enqueue_script( 'headroom.min', MK_THEME_STATIC_URL . '/dev/headroom.min.js', array(), '0.94', false);
-        
-        // clipboard.min
-        wp_enqueue_script( 'clipboard.min', MK_THEME_STATIC_URL . '/dev/clipboard.min.js', array(), '0.94', false);
-        
-        // instantclick.min
-        wp_enqueue_script( 'instantclick.min', MK_THEME_STATIC_URL . '/dev/instantclick.min.js', array(), '0.94', false);
-        
-        // jquery.autoMenu
-        wp_enqueue_script( 'jquery.autoMenu', MK_THEME_STATIC_URL . '/dev/jquery.autoMenu.js', array(), '0.94', false);
-        
-        // 表情
-        wp_enqueue_script( 'emoji.min', MK_THEME_STATIC_URL . '/dev/emoji.min.js', array(), '1.11', false);
-        wp_enqueue_script( 'jquery.emoji.min', MK_THEME_STATIC_URL . '/dev/jquery.emoji.js', array(), '1.0', false);
-        wp_enqueue_style( 'jquery.emoji', MK_THEME_STATIC_URL . '/dev/jquery.emoji.css', array(), '1.0', 'all');
-        
-    } else {
-        // 主题核心脚本文件
-        wp_enqueue_script( 'script', MK_THEME_STATIC_URL . '/js/script.min.js', array(), THEME_VERSION, false);
-        
-        // CSS 样式表
-        wp_enqueue_style( 'main-style', MK_THEME_STATIC_URL . '/css/style.css', array(), THEME_VERSION, 'all');
-    }
+    
     
     // 网站API设定
     wp_localize_script('script', 'mk_theme_api', array(
-        'is_wap'     => wp_is_mobile()? "true": "false",  // 是否是手机浏览
+        'is_wap'     => wp_is_mobile()? 'true': 'false',  // 是否是手机浏览
         'ajax_url'   => admin_url() . 'admin-ajax.php',   // 评论 AJAX 路径
         'home_url'   => home_url(),                       // 网站首页路径
         'theme_url'  => get_template_directory_uri(),     // 主题路径
-        'static_url' => MK_THEME_STATIC_URL,              // 静态资源路径
+        'static_url' => $theme_static_url                 // 静态资源路径
     ));
 }
 add_action( 'wp_enqueue_scripts', 'mk_theme_scripts' );
@@ -241,12 +207,6 @@ function mk_comment_escape($comment) {
     return $comment;
 }
 add_filter('preprocess_comment', 'mk_comment_escape');    //评论写入时转义
-
-
-// 启用特色图片
-if(function_exists('add_theme_support')) {
-    add_theme_support('post-thumbnails', array('post', 'page'));
-}
 
 
 // 密码文章表单重写 wp-includes > post-template.php

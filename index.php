@@ -53,9 +53,4 @@ get_header();
   </section>
 </div>
 
-<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/jquery.min.js"></script>
-<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/jquery.nicescroll.min.js"></script>
-<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/main.min.js"></script>
-</body>
-</html>
+<?php get_footer(); ?>

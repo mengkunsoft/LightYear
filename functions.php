@@ -1,5 +1,8 @@
 <?php 
 
+// 主题版本号
+define('THEME_VERSION', 1.0);
+
 // WordPress 优化
 require get_template_directory() . '/inc/wp-optimize.php';
 

@@ -412,3 +412,10 @@ if(!function_exists('mb_strimwidth')) {
     }
 }
 
+
+// 网页标题
+function mk_add_theme_support_title() {
+    add_theme_support( 'title-tag' );
+    // add_theme_support('post-thumbnails', array('post', 'page'));
+}
+add_action( 'after_setup_theme', 'mk_add_theme_support_title' );

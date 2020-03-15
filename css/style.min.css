@@ -315,6 +315,7 @@ i[class*='mdi'] {
 .arc-synopsis p {
     margin: 0 0 20px;
     line-height: 1.7;
+    word-break: break-all;
 }
 /* 文章详细 */
 .lyear-arc-detail {
