@@ -234,6 +234,28 @@ function mk_open_comments_for_pages( $status, $post_type, $comment_type ) {
 add_filter( 'get_default_comment_status', 'mk_open_comments_for_pages', 10, 3 );
 
 
+// 恢复评论框顺序  https://fatesinger.com/77526
+function mk_recover_comment_fields($comment_fields){
+    $comment = array_shift($comment_fields);
+    $comment_fields =  array_merge($comment_fields ,array('comment' => $comment));
+    return $comment_fields;
+}
+add_filter('comment_form_fields', 'mk_recover_comment_fields');
+
+
+// 评论作者链接新窗口打开
+function mk_specs_comment_author_link() {
+    $url    = get_comment_author_url();
+    $author = get_comment_author();
+    if (empty($url) || 'http://' == $url) {
+        return $author;
+    } else {
+        return "<a target='_blank' href='{$url}' rel='external nofollow' class='url'>{$author}</a>";
+    }
+}
+add_filter('get_comment_author_link', 'mk_specs_comment_author_link');
+
+
 // 不对自己发送 pingback
 function mk_no_self_ping( &$links ) {
     $home = get_option( 'home' );
@@ -312,22 +334,6 @@ function mk_auto_image_alt($content) {
     return $content;
 }
 add_filter( 'the_content', 'mk_auto_image_alt' );
-
-
-// 评论作者链接新窗口打开
-function mk_specs_comment_author_link() {
-    $url    = get_comment_author_url();
-    $author = get_comment_author();
-    if (empty($url) || 'http://' == $url) {
-        return $author;
-    } else {
-        if(mk_theme_option('comment_links_go')) {
-            $url = mk_pagego_url() . $url;
-        }
-        return "<a target='_blank' href='{$url}' rel='external nofollow' class='url'>{$author}</a>";
-    }
-}
-add_filter('get_comment_author_link', 'mk_specs_comment_author_link');
 
 
 // 默认搜索伪静态 https://zhangge.net/5062.html

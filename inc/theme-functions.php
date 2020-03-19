@@ -13,7 +13,7 @@ function mk_theme_scripts() {
     wp_enqueue_script( 'bootstrap', $theme_static_url . '/js/bootstrap.min.js',             array(), THEME_VERSION, true );
     wp_enqueue_script( 'highlight', $theme_static_url . '/js/highlight.pack.js',            array(), THEME_VERSION, true );
     wp_enqueue_script( 'main',      $theme_static_url . '/js/main.min.js',                  array(), THEME_VERSION, true );
-    
+    wp_enqueue_script( 'comment-reply' ); 
     
     // 样式文件
     wp_enqueue_style( 'bootstrap',           $theme_static_url . '/css/bootstrap.min.css',              array(), THEME_VERSION, 'all' );
@@ -165,7 +165,6 @@ add_filter('comment_text', 'mk_comment_at', 20, 2);
  */
 function mk_comment_code_escape( $comment ) {
     $comment = str_replace(array('<', '>'), array('&lt;', '&gt;'), $comment);
-    $goPage  = mk_pagego_url();
     
     $comment = preg_replace(
         array(
@@ -188,7 +187,7 @@ function mk_comment_code_escape( $comment ) {
             '<pre class="prettyprint lang- linenums:1">$1</pre>',        // 这是神秘代码
             '<blockquote>$1</blockquote>',                               // 鲁迅曾说过。。
             '<span style="color: $1">$2</span>',                         // 给点颜色看看
-            '<a href="'.$goPage.'$1" target="_blank" class="comment-t-a links" rel="nofollow noopener">$2</a>',            // 会不会跳到羞羞的网站？
+            '<a href="$1" target="_blank" class="comment-t-a links" rel="nofollow noopener">$2</a>',            // 会不会跳到羞羞的网站？
             '<a href="$1" data-fancybox data-no-instant><i class="fa fa-picture-o" aria-hidden="true"></i> 查看图片</a>'   // 无图无真相
             ), 
             
