@@ -6,9 +6,8 @@ get_header();
 <div class="lyear-wrapper">
   <section class="mt-5 pb-5">
     <div class="container">
-
-      <div class="row">
-          <?php while ( have_posts() ) : the_post(); ?>
+    <div class="row">
+        <?php while(have_posts()): the_post(); ?>
         <!-- 文章阅读 -->
         <div class="col-xl-8">
           <article class="lyear-arc">
@@ -29,6 +28,7 @@ get_header();
                 <div class="mt-5">
                     <h6>Tags:</h6>
                     <div class="tag-cloud">
+                        <?php the_tags('<li><i class="mdi mdi-tag-text-outline"></i> ', ', ', '</li>'); ?>
                         <a href="#" class="badge badge-light">logo</a>
                         <a href="#" class="badge badge-light">AI</a>
                         <a href="#" class="badge badge-light">芯片</a>

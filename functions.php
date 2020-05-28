@@ -3,6 +3,12 @@
 // 主题版本号
 define('THEME_VERSION', 1.0);
 
+if(get_option('permalink_structure')) {
+	define('BLOG_REWRITE', true);
+} else {
+    define('BLOG_REWRITE', false);
+}
+
 // WordPress 优化
 require get_template_directory() . '/inc/wp-optimize.php';
 
@@ -22,5 +28,3 @@ if(file_exists(dirname(__FILE__) . '/user-functions.php')) {
  * 温馨提示：
  * - 主题代码到此结束，如果本行后出现了其它代码，说明你的网站可能被挂马了
  */
-
-?>
