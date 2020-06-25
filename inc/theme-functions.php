@@ -1,7 +1,7 @@
 <?php
 
 /**
- * mkBlog 主题函数
+ * 主题函数
  */
 
 // 加载前端脚本及样式
@@ -9,19 +9,17 @@ function mk_theme_scripts() {
     $theme_static_url = get_template_directory_uri();
     
     // 前端脚本
-    wp_enqueue_script( 'jquery',    $theme_static_url . '/js/jquery.min.js',                array(), THEME_VERSION, true );
-    wp_enqueue_script( 'bootstrap', $theme_static_url . '/js/bootstrap.min.js',             array(), THEME_VERSION, true );
-    wp_enqueue_script( 'highlight', $theme_static_url . '/js/highlight.pack.js',            array(), THEME_VERSION, true );
-    wp_enqueue_script( 'main',      $theme_static_url . '/js/main.min.js',                  array(), THEME_VERSION, true );
-    wp_enqueue_script( 'comment-reply' ); 
+    wp_enqueue_script('jquery',    $theme_static_url . '/js/jquery.min.js',     array(), THEME_VERSION, true);
+    wp_enqueue_script('bootstrap', $theme_static_url . '/js/bootstrap.min.js',  array(), THEME_VERSION, true);
+    wp_enqueue_script('highlight', $theme_static_url . '/js/highlight.pack.js', array(), THEME_VERSION, true);
+    wp_enqueue_script('main',      $theme_static_url . '/js/main.min.js',       array(), THEME_VERSION, true);
+    wp_enqueue_script('comment-reply'); 
     
     // 样式文件
-    wp_enqueue_style( 'bootstrap',           $theme_static_url . '/css/bootstrap.min.css',              array(), THEME_VERSION, 'all' );
-    wp_enqueue_style( 'materialdesignicons', $theme_static_url . '/css/materialdesignicons.min.css',    array(), THEME_VERSION, 'all' );
-    wp_enqueue_style( 'highlight',           $theme_static_url . '/css/highlight.css',                  array(), THEME_VERSION, 'all' );
-    wp_enqueue_style( 'style',               $theme_static_url . '/css/style.min.css',                  array(), THEME_VERSION, 'all' );
-    
-    
+    wp_enqueue_style('bootstrap',           $theme_static_url . '/css/bootstrap.min.css',           array(), THEME_VERSION, 'all');
+    wp_enqueue_style('materialdesignicons', $theme_static_url . '/css/materialdesignicons.min.css', array(), THEME_VERSION, 'all');
+    wp_enqueue_style('highlight',           $theme_static_url . '/css/highlight.css',               array(), THEME_VERSION, 'all');
+    wp_enqueue_style('style',               $theme_static_url . '/css/style.min.css',               array(), THEME_VERSION, 'all');
     
     // 网站API设定
     wp_localize_script('script', 'mk_theme_api', array(

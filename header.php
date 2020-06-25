@@ -28,8 +28,7 @@
                 <div class="profile-section pt-3 pt-lg-0">
                     <img class="profile-image mb-3 rounded-circle mx-auto" src="<?php bloginfo('template_url'); ?>/images/lyear.png" width="120" height="120" alt="<?php bloginfo('name'); ?>" >
                     <div class="lyear-sentence mb-3">
-                        <?php echo  get_the_author_meta( 'user_description' ); ?>
-                        必须记住我们学习的时间是有限的。时间有限，不只由于人生短促，更由于人事纷繁。我们就应力求把我们所有的时间用去做最有益的事情。
+                        <?php echo get_the_author_meta('user_description'); ?>
                     </div>
                     <hr>
                 </div>

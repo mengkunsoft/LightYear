@@ -15,6 +15,9 @@ require get_template_directory() . '/inc/wp-optimize.php';
 // 主题函数
 require get_template_directory() . '/inc/theme-functions.php';
 
+// 主题侧边栏
+require get_template_directory() . '/inc/theme-sidebar.php';
+
 
 /**
  * 如果你需要在主题的 functions.php 中加入自定义代码，可以在主题的根目录下新建一个 PHP 文件，
